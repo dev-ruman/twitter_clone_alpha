@@ -1,0 +1,51 @@
+import 'package:appwrite/appwrite.dart';
+import 'package:appwrite/models.dart';
+import 'package:fpdart/fpdart.dart';
+import 'package:riverpod/riverpod.dart';
+import 'package:twitter_clone_alpha/core/core.dart';
+import 'package:twitter_clone_alpha/core/providers.dart';
+
+final authProvider = Provider((ref) {
+  final account = ref.watch(appWriteAccountProvider);
+  return AuthAPI(account: account);
+});
+
+abstract class IAuthAPI {
+  FutureEither<User> signUp({
+    required String email,
+    required String password,
+  });
+}
+
+class AuthAPI implements IAuthAPI {
+  final Account _account;
+  AuthAPI({required Account account}) : _account = account;
+  @override
+  FutureEither<User> signUp({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final account = await _account.create(
+        userId: ID.unique(),
+        email: email,
+        password: password,
+      );
+      return right(account);
+    } on AppwriteException catch (e, stackTrace) {
+      return left(
+        Failure(
+          e.message.toString(),
+          stackTrace,
+        ),
+      );
+    } catch (e, stackTrace) {
+      return left(
+        Failure(
+          e.toString(),
+          stackTrace,
+        ),
+      );
+    }
+  }
+}

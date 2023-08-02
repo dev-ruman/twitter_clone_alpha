@@ -18,19 +18,19 @@ class AuthField extends StatelessWidget {
       controller: controller,
       decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5),
+            borderRadius: BorderRadius.circular(30),
             borderSide: const BorderSide(
               color: Pallete.blueColor,
               width: 2.0,
             ),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5),
+            borderRadius: BorderRadius.circular(25),
             borderSide: const BorderSide(
               color: Pallete.greyColor,
             ),
           ),
-          contentPadding: const EdgeInsets.all(20),
+          contentPadding: const EdgeInsets.all(15),
           hintText: hintText,
           hintStyle: const TextStyle(
             fontSize: 18,

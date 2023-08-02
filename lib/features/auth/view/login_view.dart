@@ -10,7 +10,7 @@ import 'package:twitter_clone_alpha/theme/pallete.dart';
 
 class LoginView extends StatefulWidget {
   static route() => MaterialPageRoute(
-        builder: (context) => const SignupView(),
+        builder: (context) => const LoginView(),
       );
   const LoginView({super.key});
 

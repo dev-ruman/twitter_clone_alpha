@@ -21,12 +21,17 @@ class LargeButton extends StatelessWidget {
         width: MediaQuery.sizeOf(context).width,
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25), color: Colors.white),
+          borderRadius: BorderRadius.circular(25),
+          color: Colors.white,
+        ),
         child: Text(
           text,
           textAlign: TextAlign.center,
           style: const TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black),
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+            color: Colors.black,
+          ),
         ),
       ),
     );
